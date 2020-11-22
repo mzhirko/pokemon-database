@@ -1,0 +1,20 @@
+-------------------------------[1]-------------------------------
+MATCH (n: Coach) RETURN n
+-------------------------------[2]-------------------------------
+MATCH (pokemon: Pokemon) RETURN COUNT(pokemon)
+-------------------------------[3]-------------------------------
+MATCH (n: Coach{age:10}) RETURN n.name
+-------------------------------[4]-------------------------------
+MATCH (n: Pokemon{type: 'Fire'}) RETURN n
+-------------------------------[5]-------------------------------
+MATCH (n: Coach{name: 'Brock'})-[:COACH]->(m: Pokemon) RETURN m
+-------------------------------[6]-------------------------------
+MATCH (coach: Coach)-[:COACH]->(n: Pokemon)-[:MEGA_EVOLVES]->(m: Pokemon{type: 'Fire'})-[:MEGA_STONE]->(stone: MegaStone) RETURN stone.name ORDER BY coach.age
+-------------------------------[7]-------------------------------
+MATCH (n: Coach)-[:FRIEND]->(m: Coach) RETURN n.name, m.name
+-------------------------------[8]-------------------------------
+MATCH (n: Pokemon)-[:MEGA_EVOLVES]->(m) RETURN n.name, m.name
+-------------------------------[9]-------------------------------
+MATCH (pokemon: Pokemon)<-[:COACH]-(coach: Coach)-[:FRIEND]->(misty: Coach{name: 'Misty'}) WHERE pokemon.height >= 100 AND pokemon.height <= 200 RETURN pokemon
+-------------------------------[10]------------------------------
+MATCH (coach: Coach)-[:COACH]->(pokemon: Pokemon) with coach, collect(coach.age) as c with max(c) as m with m[0] as element MATCH (coach: Coach{age:element})-[:COACH]->(pokemon: Pokemon) return avg(pokemon.height)
