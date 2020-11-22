@@ -1,5 +1,5 @@
 **Жирко М. С. гр. 821701**
-_service: **_MySQL_** Ind.Task №--_ 
+_service: **_Neo4j_** Ind.Task №--_ 
 
 
 # Projecting of Knowledge Bases
@@ -9,7 +9,7 @@ The purpose was to learn the basics of Neo4j platform. The table creating and qu
 ### Description:
 _This database contains information about Pokemons & their coaches. All stored in the **table-template.txt** file._
 ### Queries:
-_all tasks correspond to the certain query in **queries.txt** file_
+_All tasks correspond to the certain query in the **queries.txt** file._
 1) Get all information about coaches;
 2) Display the number of Pokemons the information about which is in the database;
 3) Find out the names of the coaches who are ten years old;
